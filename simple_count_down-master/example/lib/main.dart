@@ -11,12 +11,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Countdown Demo',
+      title: 'Tabatapp',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(
-        title: 'Flutter Demo Countdown',
+        title: 'Tabata App',
       ),
     );
   }
@@ -62,6 +62,24 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
+            Countdown(
+              controller: _controller,
+              seconds: 5,
+              build: (_, double time) => Text(
+                time.toString(),
+                style: TextStyle(
+                  fontSize: 100,
+                ),
+              ),
+              interval: Duration(milliseconds: 100),
+              onFinished: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('Timer is done!'),
+                  ),
+                );
+              },
+            ),
             Container(
               padding: const EdgeInsets.symmetric(
                 horizontal: 16,
@@ -99,24 +117,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               ),
-            ),
-            Countdown(
-              controller: _controller,
-              seconds: 5,
-              build: (_, double time) => Text(
-                time.toString(),
-                style: TextStyle(
-                  fontSize: 100,
-                ),
-              ),
-              interval: Duration(milliseconds: 100),
-              onFinished: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text('Timer is done!'),
-                  ),
-                );
-              },
             ),
           ],
         ),
