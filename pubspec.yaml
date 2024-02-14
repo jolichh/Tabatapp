@@ -16,9 +16,7 @@ dependencies:
   audioplayers: ^5.2.1
   circular_countdown_timer: ^0.2.3
   timer_count_down: ^2.2.2
-
-  cupertino_icons: ^1.0.2
-  audioplayers: ^5.2.1
+  provider: ^6.1.1
 
 dev_dependencies:
   flutter_test:
