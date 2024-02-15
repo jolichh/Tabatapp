@@ -109,6 +109,7 @@ class CountdownProvider extends ChangeNotifier {
     duration = Duration(seconds: workDuration);
     isRunning = false;
     _streamSubscription?.cancel();
+    audioPlayer.pauseAudio();
     notifyListeners();
   }
 
